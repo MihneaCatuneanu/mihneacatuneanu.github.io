@@ -17,6 +17,7 @@
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
                 <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#secret" class="nav-link">Secret</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
             <div class="hamburger">
@@ -416,11 +417,46 @@
         </div>
     </section>
 
+    <!-- Secret Terminal Game Section -->
+    <section id="secret" class="secret-terminal">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-number">04.</span> Restricted Access
+            </h2>
+            <div class="terminal-container">
+                <div class="terminal-header">
+                    <div class="terminal-buttons">
+                        <span class="terminal-button close"></span>
+                        <span class="terminal-button minimize"></span>
+                        <span class="terminal-button maximize"></span>
+                    </div>
+                    <div class="terminal-title">mihnea@security-terminal ~ %</div>
+                </div>
+                <div class="terminal-body" id="terminal">
+                    <div class="terminal-output">
+                        <p class="terminal-welcome">╔═══════════════════════════════════════════════════════════╗</p>
+                        <p class="terminal-welcome">║   SECURE SYSTEM v3.14.159 - AUTHORIZED ACCESS ONLY       ║</p>
+                        <p class="terminal-welcome">╚═══════════════════════════════════════════════════════════╝</p>
+                        <p class="terminal-info">Welcome, Security Analyst!</p>
+                        <p class="terminal-info">Your mission: Find the hidden flag in the system.</p>
+                        <p class="terminal-hint">Hint: Start with 'help' to see available commands.</p>
+                        <p class="terminal-hint">Some files might be hidden... try 'ls -a'</p>
+                        <br>
+                    </div>
+                    <div class="terminal-input-line">
+                        <span class="terminal-prompt">visitor@security-terminal:~$</span>
+                        <input type="text" class="terminal-input" id="terminalInput" autocomplete="off" spellcheck="false">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
             <h2 class="section-title">
-                <span class="title-number">04.</span> Let's Talk!
+                <span class="title-number">05.</span> Let's Talk!
             </h2>
             <div class="contact-content">
                 <div class="contact-text">
@@ -473,5 +509,6 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="terminal-game.js"></script>
 </body>
 </html>
