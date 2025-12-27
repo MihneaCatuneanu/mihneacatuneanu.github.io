@@ -111,7 +111,7 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observe all sections and cards
-document.querySelectorAll('section, .project-card, .skill-item, .stat-card, .repo-card').forEach(el => {
+document.querySelectorAll('section, .project-card, .skill-item, .stat-card').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(20px)';
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
@@ -131,62 +131,6 @@ function animateNumber(element, target) {
             element.textContent = Math.floor(current);
         }
     }, 30);
-}
-
-// ========== GitHub Repositories Fetch ==========
-async function fetchGitHubRepos() {
-    const username = 'MihneaCatuneanu'; // Change to your GitHub username
-    const reposContainer = document.getElementById('github-repos');
-
-    try {
-        const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=6`);
-
-        if (!response.ok) {
-            throw new Error('Could not load repositories');
-        }
-        
-        const repos = await response.json();
-        
-        reposContainer.innerHTML = repos.map(repo => `
-            <div class="repo-card" onclick="window.open('${repo.html_url}', '_blank')">
-                <div class="repo-header">
-                    <i class="fas fa-folder repo-icon"></i>
-                    <h3 class="repo-name">${repo.name}</h3>
-                </div>
-                <p class="repo-description">
-                    ${repo.description || 'No description available'}
-                </p>
-                <div class="repo-stats">
-                    <span class="repo-stat">
-                        <i class="fas fa-star"></i>
-                        ${repo.stargazers_count}
-                    </span>
-                    <span class="repo-stat">
-                        <i class="fas fa-code-branch"></i>
-                        ${repo.forks_count}
-                    </span>
-                    ${repo.language ? `<span class="repo-language">${repo.language}</span>` : ''}
-                </div>
-            </div>
-        `).join('');
-        
-        // Observe new repo cards
-        document.querySelectorAll('.repo-card').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(card);
-        });
-        
-    } catch (error) {
-        reposContainer.innerHTML = `
-            <div class="loading">
-                <i class="fas fa-exclamation-circle fa-2x"></i>
-                <p>Could not load repositories. Check GitHub username in script.js</p>
-            </div>
-        `;
-        console.error('Error fetching repos:', error);
-    }
 }
 
 // ========== Contact Form Handling ==========
@@ -324,13 +268,10 @@ document.head.appendChild(style);
 document.addEventListener('DOMContentLoaded', () => {
     // Start typing effect
     setTimeout(typeEffect, 1000);
-    
-    // Fetch GitHub repos
-    fetchGitHubRepos();
-    
+
     // Create particles (optional - comment out if too distracting)
     // createParticles();
-    
+
     // Add initial animations
     document.querySelector('.hero').style.opacity = '1';
     document.querySelector('.hero').style.transform = 'translateY(0)';
