@@ -1,10 +1,10 @@
 // ========== Typing Effect ==========
 const typingTexts = [
-    'Systems Programmer',
-    'Mobile Developer',
-    'Computer Science Student',
-    'Problem Solver',
-    'Tech Enthusiast'
+    'Cybersecurity Analyst',
+    'Cybersecurity Architect',
+    'Automation Engineer',
+    'n8n Workflow Developer',
+    'AI Integration Specialist'
 ];
 
 let textIndex = 0;
@@ -135,14 +135,14 @@ function animateNumber(element, target) {
 
 // ========== GitHub Repositories Fetch ==========
 async function fetchGitHubRepos() {
-    const username = 'mihneacatuneanu'; // Schimbă cu username-ul tău GitHub
+    const username = 'MihneaCatuneanu'; // Change to your GitHub username
     const reposContainer = document.getElementById('github-repos');
-    
+
     try {
         const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=6`);
-        
+
         if (!response.ok) {
-            throw new Error('Nu s-au putut încărca repository-urile');
+            throw new Error('Could not load repositories');
         }
         
         const repos = await response.json();
@@ -182,7 +182,7 @@ async function fetchGitHubRepos() {
         reposContainer.innerHTML = `
             <div class="loading">
                 <i class="fas fa-exclamation-circle fa-2x"></i>
-                <p>Nu s-au putut încărca repository-urile. Verifică username-ul GitHub în script.js</p>
+                <p>Could not load repositories. Check GitHub username in script.js</p>
             </div>
         `;
         console.error('Error fetching repos:', error);
@@ -198,27 +198,27 @@ contactForm.addEventListener('submit', async (e) => {
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const message = document.getElementById('message').value;
-    
-    // Aici poți adăuga logica pentru trimiterea formularului
-    // De exemplu, folosind EmailJS sau un backend
-    
-    // Pentru demonstrație, arătăm doar un alert
-    alert('Mulțumesc pentru mesaj! Voi răspunde în curând.');
-    
+
+    // Here you can add logic for sending the form
+    // For example, using EmailJS or a backend
+
+    // For demonstration, we just show an alert
+    alert('Thank you for your message! I will respond soon.');
+
     // Reset form
     contactForm.reset();
-    
-    // Exemplu cu EmailJS (necesită configurare):
+
+    // Example with EmailJS (requires configuration):
     /*
     emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
         from_name: name,
         from_email: email,
         message: message
     }).then(() => {
-        alert('Mesaj trimis cu succes!');
+        alert('Message sent successfully!');
         contactForm.reset();
     }).catch((error) => {
-        alert('A apărut o eroare. Te rog încearcă din nou.');
+        alert('An error occurred. Please try again.');
         console.error(error);
     });
     */
@@ -381,7 +381,7 @@ if ('IntersectionObserver' in window) {
 }
 
 // ========== Console Easter Egg ==========
-console.log('%c👋 Bună! ', 'font-size: 20px; font-weight: bold; color: #64ffda;');
-console.log('%cDacă cauți să angajezi un developer, să colaborăm la un proiect sau doar vrei să discutăm despre tehnologie, contactează-mă! 🚀', 'font-size: 14px; color: #8892b0;');
-console.log('%c📧 Email: your.email@example.com', 'font-size: 12px; color: #64ffda;');
-console.log('%c💼 LinkedIn: linkedin.com/in/mihneacatuneanu', 'font-size: 12px; color: #64ffda;');
+console.log('%c👋 Hello! ', 'font-size: 20px; font-weight: bold; color: #64ffda;');
+console.log('%cIf you\'re looking to hire a cybersecurity professional, collaborate on automation projects, or just want to discuss technology and security, contact me! 🚀', 'font-size: 14px; color: #8892b0;');
+console.log('%c📧 Email: catuneanu.mihneastefan@gmail.com', 'font-size: 12px; color: #64ffda;');
+console.log('%c💼 LinkedIn: linkedin.com/in/mihnea-ștefan-cătuneanu', 'font-size: 12px; color: #64ffda;');
